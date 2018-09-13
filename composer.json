@@ -1,0 +1,25 @@
+{
+    "name": "davidearl/webauthn",
+    "type": "library",
+    "description": "PHP webauthn implementation",
+    "keywords": [
+        "webauthn"
+    ],
+    "homepage": "https://github.com/davidearl/webauthn",
+    "license": "PHP",
+    "authors": [
+        {
+            "name": "David Earl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "2tvenom/cborencode": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "davidearl\\webauthn": "src"
+        }
+    }
+}
