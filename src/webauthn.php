@@ -76,10 +76,10 @@ class WebAuthn {
     $result->pubKeyCredParams[0]->alg = -7;
     $result->pubKeyCredParams[0]->type = 'public-key';
 
-    $result->authenticatorSelection = (object)array();
-    $result->authenticatorSelection->authenticatorAttachment = 'cross-platform';
-    $result->authenticatorSelection->requireResidentKey = FALSE;
-    $result->authenticatorSelection->userVerification = 'preferred';
+    //$result->authenticatorSelection = (object)array();
+    //$result->authenticatorSelection->authenticatorAttachment = 'cross-platform';
+    //$result->authenticatorSelection->requireResidentKey = FALSE;
+    //$result->authenticatorSelection->userVerification = 'preferred';
 
     $result->attestation = NULL;
     $result->timeout = 60000;
@@ -278,7 +278,7 @@ class WebAuthn {
       $this->oops('cannot decode key response (2b)');
     }
 
-    if ($ao->flags != 0x1) { $this->oops('cannot decode key response (2c)'); } /* only TUP must be set */
+    if ($ao->flags != 0x1 && $ao->flags != 0x4) { $this->oops('cannot decode key response (2c)'); } /* only TUP must be set */
 
     /* assemble signed data */
     $clientdata = self::array_to_string($info->response->clientDataJSONarray);
