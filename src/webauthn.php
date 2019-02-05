@@ -278,7 +278,7 @@ class WebAuthn {
       $this->oops('cannot decode key response (2b)');
     }
 
-    if ($ao->flags != 0x1 && $ao->flags != 0x4) { $this->oops('cannot decode key response (2c)'); } /* only TUP must be set */
+    if (!($ao->flags & (1 << 0) || $ao->flags & (1 << 2))) { $this->oops('cannot decode key response; flags: ' . $ao->flags); } /* User Present (UP) or User Verified (UV) bits must be set */
 
     /* assemble signed data */
     $clientdata = self::array_to_string($info->response->clientDataJSONarray);
