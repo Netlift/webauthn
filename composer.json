@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=7.2.0",
-        "2tvenom/cborencode": "dev-master"
+        "2tvenom/cborencode": "^1.0.2"
     },
     "autoload": {
         "psr-0": {
